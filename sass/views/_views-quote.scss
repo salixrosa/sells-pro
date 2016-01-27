@@ -1,0 +1,25 @@
+.quote {
+  .postcontent {
+    display: inline-block;
+    width: 90%;
+  }
+  blockquote, blockquote p {
+    font-style: italic;
+    border-left: none;
+  }
+}
+.quoteicon {
+  display: inline-block;
+  width: 6rem;
+  vertical-align: top;
+  i {
+    font-size: 5rem;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    color: $quoteiconc;
+  }
+}
+blockquote {
+  padding: 1rem 2rem;
+  border-left: solid 3px $blockquotebc;
+}

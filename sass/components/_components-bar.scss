@@ -1,0 +1,31 @@
+.bar {
+  background-color: $barbgc;
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+  font-size: 0;
+}
+
+.search-form, #social-bar-menu {
+  display: inline-block;
+  width: 50%;
+}
+
+.search-form {
+  text-align: left;
+}
+
+#social-bar-menu {
+  text-align: right;
+  li {
+    display: inline-block;
+    padding: 0 .7rem;
+  }
+  i {
+    font-size: 1.8rem;
+    color: $bariconc;
+    font-family: FontAwesome;
+    &:hover {
+      color: darken($bariconc, 50%);
+    }
+  }
+}

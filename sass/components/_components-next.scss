@@ -1,0 +1,11 @@
+.next {
+  display: inline-block;
+  margin-top: 2rem;
+  width: 49.5%;
+  padding: 1rem;
+  font-size: 1.6rem;
+  color: $nextc;
+  &.newer {
+    text-align: right;
+  }
+}

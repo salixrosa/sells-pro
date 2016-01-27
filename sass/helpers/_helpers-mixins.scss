@@ -1,0 +1,24 @@
+/* Animation Mixins */
+@mixin crosstransition($property, $duration, $timing-function, $delay){
+  -webkit-transition: $property $duration $timing-function $delay;
+  -moz-transition: $property $duration $timing-function $delay;
+  -o-transition: $property $duration $timing-function $delay;
+  transition: $property $duration $timing-function $delay;
+}
+
+/* Media Query Mixins */
+@mixin respond-to($eq,$width) {
+  @media only screen and (#{$eq}: $width){
+    @content;
+  }
+}
+@mixin respond-or($ea,$a,$eb,$b) {
+  @media only screen and (#{$ea}: $a), only screen and (#{$eb}: $b){
+    @content;
+  }
+}
+@mixin respond-and($ec,$c,$ed,$d) {
+  @media only screen and (#{$ec}: $c) and (#{$ed}: $d) {
+    @content;
+  }
+}

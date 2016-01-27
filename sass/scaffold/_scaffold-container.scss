@@ -1,0 +1,41 @@
+body {
+  background-color: #EEEEEE;
+  font-family: $bodyfont;
+}
+#wrapper {
+  background-color: white;
+  max-width: $max-wrapper-width;
+  margin: 0 auto;
+}
+#banner {
+  text-align: center;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 2rem;
+  max-width: $max-container-width;
+}
+#wrapper, .container {
+  overflow: hidden;
+}
+article {
+  padding: 7rem 0;
+  &:nth-child(odd) {
+    background-color: $oddarticlebgc;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    &.alignleft {
+      padding: 1rem 2rem 1rem 0;
+      float: left;
+    }
+  }
+}
+.left {
+  float: left;
+}
+.single article img {
+  display: block;
+  margin: 1rem auto;
+}

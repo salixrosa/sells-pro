@@ -1,0 +1,36 @@
+footer {
+  margin: 3rem 0;
+  border-top: solid 1px $footerbc;
+  padding-top: 5rem;
+  text-align: center;
+}
+#theme {
+  clear: both;
+  margin: 2rem 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: $widgettextc;
+  letter-spacing: 1px;
+  i {
+    display: block;
+    font-size: 2.8rem;
+    padding-bottom: .5rem;
+    &:hover {
+      color: #347A99;
+    }
+  }
+}
+#extended-footer {
+  li.widget {
+    padding: 1rem 0 1rem 6rem;
+    color: $widgettextc;
+    font-size: 1.5rem;
+    line-height: 1.8em;
+    &:first-child {
+      padding-left: 0rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}
