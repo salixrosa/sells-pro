@@ -165,7 +165,7 @@ class SP_Walker_Nav_Menu_With_Icons_Edit extends Walker_Nav_Menu {
 					</label>
 				</p>
         <!-- sells-pro FA ICON CLASS FIELD-->
-        <p class="field-description description description-wide">
+        <p class="field-fa-icon-class description description-wide">
 					<label for="edit-menu-item-fa-icon-class<?php echo $item_id; ?>">
 						<?php _e( 'Font Awesome Icon Class (sells-pro)' ); ?><br />
 						<input type="text" id="edit-menu-item-fa-icon-class<?php echo $item_id; ?>" class="widefat edit-menu-item-fa-icon-class" name="menu-item-fa-icon-class[<?php echo $item_id; ?>]" value="<?php echo esc_html( $item->fa_icon_class ); ?>" />

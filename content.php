@@ -1,5 +1,5 @@
 <div class="postthumbnail">
-  <?php echo is_home() ? get_the_post_thumbnail($post->ID,'full') : ''; ?>
+  <?php echo is_home() ? the_post_thumbnail('medium') : ''; ?>
 </div>
 <div class="postmeta">
   <?php echo is_home() ? "<a href='" . get_permalink() . "'>" : ''; ?>
