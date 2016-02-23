@@ -3,6 +3,7 @@
   & > li {
     display: table-cell;
     width: 1%;
+    position: relative;
     border: solid 1px transparent;
     &:before {
       content: '';
@@ -60,7 +61,7 @@
   }
   li:hover > .sub-menu {
     opacity: 1;
-    max-width: 200rem; // Random, extra-large value to undo max-width: 0
+    max-width: 100%; // Random, extra-large value to undo max-width: 0
     overflow: visible; // Allows sub-sub-menu to be displayed on hover
     @include crosstransition(all, 0s, null, .2s);
     border: solid 1px lightgray;

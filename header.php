@@ -35,7 +35,7 @@
 						<?php
 							wp_nav_menu( array(
 								'theme_location' 	=> 'primary',
-								'container' 			=> '',
+								'container' 			=> false,
 								'menu_id'					=> 'header-menu'
 							));
 						?>
