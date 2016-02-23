@@ -14,6 +14,7 @@
 		<meta name="viewport" content="initial-scale=1.0,width=device-width">
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<?php wp_head(); ?>
+		<link type="style/css" rel="stylesheet" href="<?php echo get_template_directory_uri() . '/footerfallback.css'; ?>">
 	</head>
 
 	<body <?php body_class(); ?>>
