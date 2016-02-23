@@ -1,5 +1,10 @@
 .postthumbnail {
-  max-width: 30rem;
-  float: left;
-  margin-right: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+@include respond-to(min-width, 500px) {
+  .postthumbnail {
+    float: left;
+    margin-right: 3rem;
+  }
 }
