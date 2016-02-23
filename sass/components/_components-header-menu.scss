@@ -1,12 +1,12 @@
 #header-menu {
+  text-align: center;
   font-size: 1.4rem;
   & > li {
-    display: table-cell;
-    width: 1%;
-    position: relative;
-    border: solid 1px transparent;
+    position: relative; // for width on position:absolute children
+    margin-bottom: .5rem;
+    border: solid 1px transparent; // so elements don't move when border display on hover
     &:before {
-      content: '';
+      content: ''; // creates invisible aligning element
       display: inline-block;
       height: 100%;
       vertical-align: middle;
@@ -22,22 +22,13 @@
         content: '\25BE';
         color: $headercaretc;
       }
-      &:hover {
-        border-color: $headermenuborderc;
-      }
     }
   }
   .sub-menu {
-    position: absolute;
-    opacity: 0; // The primary property for how this menu's dropdowns display
-    max-width: 0rem; // Prevents horizontal container overflow when menu items are hidden
     overflow: hidden; // Prevents hover over unseen elements from bringing up menu
-    @include crosstransition(all, 0s, null, .3s); // Delays menu disappearing when mouse moves away
-    text-align: left;
-    background-color: white;
-    border: solid 1px transparent;
-    border-radius: 3px;
+    border: solid 1px transparent; // so elements don't move when border display on hover
     margin-top: .5rem;
+    background-color: white;
     li {
       min-width: 15rem;
       position: relative;
@@ -46,26 +37,89 @@
       &:hover {
         background-color: $submenubghoverc;
       }
-      &.menu-item-has-children:after {
+      &.menu-item-has-children > a:after {
         position: absolute;
         right: 1rem;
         content: '\25B8';
         color: gray;
       }
-    }
-    .sub-menu {
-      top: -.5rem;
-      left: 100%;
-      margin-left: .5rem;
+      &:first-child {
+        padding-top: 1rem;
+      }
+      &:last-child {
+        padding-bottom: 1rem;
+      }
     }
   }
   li:hover > .sub-menu {
-    opacity: 1;
-    max-width: 100%; // Random, extra-large value to undo max-width: 0
-    overflow: visible; // Allows sub-sub-menu to be displayed on hover
-    @include crosstransition(all, 0s, null, .2s);
+    border-radius: 3px;
     border: solid 1px lightgray;
-    padding: .5rem 0;
     box-shadow: 2px 2px 12px -4px gray;
+  }
+}
+
+@include respond-to(max-width, 649px) {
+  #banner nav {
+    text-align: right;
+    position: relative;
+    padding: 1rem 0;
+  }
+  #banner nav:before {
+      padding: .75rem 1rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      content: '\f0c9';
+      font-family: 'FontAwesome';
+      color: $menubarsc;
+      background-color: $menubarbgc;
+      border-radius: 5px;
+      border: solid 1px lightgray;
+      font-size: 3rem;
+  }
+  #banner nav:not(:hover) #header-menu{
+    max-height: 0;
+    overflow: hidden;
+  }
+  #header-menu .sub-menu {
+    max-width: 100%;
+    text-align: center;
+    width: 100%;
+    max-height: 0;
+    @include testtransition((all 0s null .9s, max-height 1s null 0s)); // Delays menu disappearing when mouse moves away
+  }
+  #header-menu li:hover > .sub-menu {
+    @include testtransition((border 0s null .2s, max-height 1s null .2s));
+    max-height: 100rem;
+  }
+}
+@include respond-to(min-width, 650px) {
+  #header-menu {
+    > li {
+      display: table-cell;
+      width: 1%;
+      &:hover {
+        border-color: $headermenuborderc;
+      }
+    }
+    .sub-menu {
+      position: absolute;
+      opacity: 0; // The primary property for how this menu's dropdowns display
+      max-width: 0rem; // Prevents horizontal container overflow when menu items are hidden
+      text-align: left;
+      @include crosstransition(all, 0s, null, .3s); // Delays menu disappearing when mouse moves away
+      .sub-menu {
+        top: -.5rem;
+        left: 100%;
+        margin-left: .5rem;
+      }
+    }
+    li:hover > .sub-menu {
+      opacity: 1;
+      z-index: 10;
+      display: block;
+      max-width: 100%; // Random, extra-large value to undo max-width: 0
+      overflow: visible; // Allows sub-sub-menu to be displayed on hover
+      @include crosstransition(all, 0s, null, .2s);
+    }
   }
 }

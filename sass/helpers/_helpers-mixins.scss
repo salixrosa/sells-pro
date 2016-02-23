@@ -6,6 +6,13 @@
   transition: $property $duration $timing-function $delay;
 }
 
+@mixin testtransition($list){
+  -webkit-transition: $list;
+  -moz-transition: $list;
+  -o-transition: $list;
+  transition: $list;
+}
+
 /* Media Query Mixins */
 @mixin respond-to($eq,$width) {
   @media only screen and (#{$eq}: $width){
