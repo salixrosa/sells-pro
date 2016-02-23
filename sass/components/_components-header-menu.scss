@@ -26,34 +26,24 @@
       }
     }
   }
-  li.menu-item-has-children:hover > .sub-menu{
-    max-height: 200rem;
-    border: solid 1px lightgray;
-    padding: .5rem 0;
-    opacity: 1;
-    overflow: visible;
-    box-shadow: 2px 2px 12px -4px gray;
-  }
   .sub-menu {
     position: absolute;
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    min-width: 15rem;
-    @include crosstransition(all, 0s, null, .2s);
+    opacity: 0; // The primary property for how this menu's dropdowns display
+    max-width: 0rem; // Prevents horizontal container overflow when menu items are hidden
+    overflow: hidden; // Prevents hover over unseen elements from bringing up menu
+    @include crosstransition(all, 0s, null, .3s); // Delays menu disappearing when mouse moves away
     text-align: left;
     background-color: white;
     border: solid 1px transparent;
     border-radius: 3px;
     margin-top: .5rem;
     li {
+      min-width: 15rem;
       position: relative;
       padding: .5rem 1.5rem;
+      overflow: visible;
       &:hover {
         background-color: $submenubghoverc;
-        .sub-menu {
-          max-height: 100rem;
-        }
       }
       &.menu-item-has-children:after {
         position: absolute;
@@ -63,12 +53,18 @@
       }
     }
     .sub-menu {
-      position: absolute;
       top: -.5rem;
       left: 100%;
       margin-left: .5rem;
-      max-height: 0;
-      width: 100%;
     }
+  }
+  li:hover > .sub-menu {
+    opacity: 1;
+    max-width: 200rem; // Random, extra-large value to undo max-width: 0
+    overflow: visible; // Allows sub-sub-menu to be displayed on hover
+    @include crosstransition(all, 0s, null, .2s);
+    border: solid 1px lightgray;
+    padding: .5rem 0;
+    box-shadow: 2px 2px 12px -4px gray;
   }
 }
