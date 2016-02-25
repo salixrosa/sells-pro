@@ -21,25 +21,34 @@
 		<div id="wrapper">
 			<header id="banner">
 				<div class="bar">
-					<?php
-						get_search_form();
-						wp_nav_menu( array(
-							'theme_location' 	=> 'social',
-							'container' 			=> '',
-							'menu_id'					=> 'social-bar-menu'
-						));
-					?>
-				</div>
-				<div class="container">
-					<nav role="navigation">
+					<div class="container table">
+						<?php
+							get_search_form();
+						?>
+						<div class="right">
+							<i class="fa fa-bars" id="mobilebutton"></i>
+						</div>
+					</div>
+					<div class="container">
+						<nav role="navigation">
+								<?php
+								wp_nav_menu( array(
+									'theme_location' 	=> 'primary',
+									'container' 			=> false,
+									'menu_id'					=> 'header-menu'
+								));
+								?>
+						</nav>
 						<?php
 							wp_nav_menu( array(
-								'theme_location' 	=> 'primary',
-								'container' 			=> false,
-								'menu_id'					=> 'header-menu'
+								'theme_location' 	=> 'social',
+								'container' 			=> '',
+								'menu_id'					=> 'social-bar-menu'
 							));
-						?>
-					</nav>
+							?>
+					</div>
+				</div>
+				<div class="container">
 					<img src="<?php header_image(); ?>" alt="<?php bloginfo('name'); ?>" id="headerlogo">
 				</div>
 			</header>

@@ -1,24 +1,26 @@
 .screen-reader-text {
   display: none;
 }
-.search-field {
-  width: 15rem;
-  font-size: 1.3rem;
-  height: 3rem;
-  box-shadow: none;
-  border: solid 1px lightgray;
-  outline: none;
-  background-color: #FFFFFA;
-  border-radius: 3px 0px 0px 3px;
+.search-form {
+  width: 21.5rem;
   vertical-align: top;
 }
-.search-submit {
-  height: 3rem;
-  background-color: lightgray;
-  border: solid 1px lightgray;
-  border-left-width: 0px;
-  width: 3.5rem;
+.search-field, .search-submit {
   font-size: 1.3rem;
+  height: 4rem;
+  border: solid 1px lightgray;
+}
+.search-field {
+  width: 17rem;
+  outline: none;
+  background-color: #FAFAFA;
+  border-radius: 3px 0px 0px 3px;
+  vertical-align: bottom;
+}
+.search-submit {
+  background-color: lightgray;
+  border-left-width: 0px;
+  width: 4.5rem;
   font-weight: bold;
   color: gray;
   border-radius: 0px 3px 3px 0px;
