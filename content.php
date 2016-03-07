@@ -1,6 +1,4 @@
-<div class="postthumbnail">
-  <?php echo is_home() ? the_post_thumbnail('medium') : ''; ?>
-</div>
+<?php echo is_home() && has_post_thumbnail() ? '<div class="postthumbnail">' . get_the_post_thumbnail($post->ID, 'medium') . '</div>' : ''; ?>
 <div class="postmeta">
   <?php echo is_home() ? "<a href='" . get_permalink() . "'>" : ''; ?>
     <h1><?php the_title(); ?></h1>
