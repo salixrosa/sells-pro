@@ -16,7 +16,7 @@ body {
   padding: 0 2rem;
   max-width: $max-container-width;
 }
-#wrapper, .container {
+#wrapper, article .container{
   overflow: hidden;
 }
 article {

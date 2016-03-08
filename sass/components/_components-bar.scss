@@ -1,17 +1,1 @@
 
-
-#social-bar-menu {
-  padding: 1rem 0;
-  li {
-    display: inline-block;
-    padding: 0 .7rem;
-  }
-  i {
-    font-size: 1.8rem;
-    color: $bariconc;
-    font-family: FontAwesome;
-    &:hover {
-      color: darken($bariconc, 50%);
-    }
-  }
-}

@@ -21,16 +21,12 @@
 		<div id="wrapper">
 			<header id="banner">
 				<div class="bar">
-					<div class="container table">
 						<?php
 							get_search_form();
 						?>
-						<div class="right">
-							<i class="fa fa-bars" id="mobilebutton"></i>
-						</div>
-					</div>
-					<div class="container">
 						<nav role="navigation">
+								<i class="fa fa-bars" id="mobile-button"></i>
+								<div class="container">
 								<?php
 								wp_nav_menu( array(
 									'theme_location' 	=> 'primary',
@@ -38,16 +34,18 @@
 									'menu_id'					=> 'header-menu'
 								));
 								?>
+							</div>
+								<?php
+									wp_nav_menu( array(
+										'theme_location' 	=> 'social',
+										'container' 			=> '',
+										'menu_id'					=> 'social-bar-menu'
+									));
+									?>
 						</nav>
-						<?php
-							wp_nav_menu( array(
-								'theme_location' 	=> 'social',
-								'container' 			=> '',
-								'menu_id'					=> 'social-bar-menu'
-							));
-							?>
-					</div>
+
 				</div>
+
 				<div class="container">
 					<img src="<?php header_image(); ?>" alt="<?php bloginfo('name'); ?>" id="headerlogo">
 				</div>

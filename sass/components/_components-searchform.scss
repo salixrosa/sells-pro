@@ -4,6 +4,7 @@
 .search-form {
   width: 21.5rem;
   vertical-align: top;
+  float: left;
 }
 .search-field, .search-submit {
   font-size: 1.3rem;
@@ -18,10 +19,25 @@
   vertical-align: bottom;
 }
 .search-submit {
-  background-color: lightgray;
+  background-color: $bariconc;
   border-left-width: 0px;
   width: 4.5rem;
   font-weight: bold;
   color: gray;
   border-radius: 0px 3px 3px 0px;
+}
+
+@include respond-to(min-width, 650px) {
+  .search-field, .search-submit {
+    height: 3.5rem;
+  }
+  .search-field {
+    width: 16rem;
+  }
+  .search-submit {
+    width: 3.5rem;
+  }
+  .search-form {
+    width: 19.5rem;
+  }
 }

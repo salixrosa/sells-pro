@@ -1,95 +1,164 @@
-#mobilebutton {
+/*
+Properties which hide menu parts are noted with "collapse"
+Properties which show menu parts are noted with "expand"
+Properties which must be hidden on collapse are marked with "onhide"
+*/
+
+@mixin menu-box {
+  background-color: #FAFAFA;
+  border-radius: 3px;
+  border: solid 1px lightgray;
+  li {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+#banner {
+  .bar {
+    background-color: $barbgc;
+    font-size: 0;
+    padding: 1rem 2rem;
+    text-align: right;
+    position: relative;
+    z-index: 2;
+    .container {
+      position: relative;
+      padding: 0;
+    }
+  }
+}
+
+#social-bar-menu {
+  padding: 1rem 0;
+  li {
+    display: inline-block;
+    padding: 0 .7rem;
+  }
+  i {
+    font-size: 1.8rem;
+    color: $bariconc;
+    font-family: FontAwesome;
+    &:hover {
+      color: darken($bariconc, 50%);
+    }
+  }
+}
+
+
+#mobile-button {
   font-size: 2.75rem;
   padding: .5rem .75rem;
   background-color: lightgray;
   color: gray;
-  border-radius: 3px
+  border-radius: 3px;
 }
-.bar {
-  background-color: $barbgc;
-  font-size: 0;
-  overflow: hidden;
-  max-height: 6rem;
-  .table > * {
-    display: table-cell;
-  }
-}
-.bar:hover {
-  max-height: 100rem;
-}
-.table {
-  display: table;
-  width: 100%;
-  border-spacing: 0 1rem;
-}
+
 #header-menu {
-  text-align: right;
   font-size: 1.4rem;
-  border-bottom: solid 2px $navyblue;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   li {
+    padding-top: .25rem;
+    padding-bottom: .25rem;
     &.menu-item-has-children {
       > a:after {
-        position: relative;
-        padding-left: .75rem;
-        content: '\25B8';
+        display: inline-block;
+        width: 1.4rem;
+        content: '\25BE';
         color: $headercaretc;
       }
     }
   }
-  > li {
-    a {
-      line-height: 2.25em;
-    }
-    &:hover > .sub-menu {
-      border-bottom: solid 1px lightgray;
-      margin-bottom: .75rem;
-    }
-    &:last-child:hover > .sub-menu {
-      border-bottom: none;
-    }
-    &.menu-item-has-children {
-      > a:after {
-        margin-right: -1.25rem;
-      }
-      &:hover {
-        border-top: solid 1px lightgray;
-      }
-    }
-    &:last-child {
-      padding-bottom: 1rem;
-    }
+  > li:last-child {
+    padding-bottom: 1rem;
   }
   .sub-menu {
-    overflow: hidden;
-    max-height: 0;
+    overflow: hidden; // collapse
     li:first-child {
       padding-top: 1.25rem;
     }
-    a {
-      line-height: 1.75em;
+    li:last-child {
+      padding-bottom: 1.25rem;
+      border-bottom: solid 1px lightgray;
     }
   }
-  li:hover > .sub-menu {
-    max-height: 50rem;
-    overflow: visible;
-    margin-bottom: 1rem;
+  .sub-menu .sub-menu {
+    @include menu-box;
+  }
+}
 
+@include respond-to(max-width, 649px) {
+  #header-menu {
+    border-bottom: solid 2px $navyblue;
   }
-  li.menu-item-has-children:hover {
-    > a:after {
-      content: '\25BE';
+  #banner nav {
+    height: 4rem; // collapse
+    overflow: hidden; // collapse
+  }
+
+}
+
+#header-menu .sub-menu {
+  height: 0; // collapse
+}
+#header-menu > li.menu-item-has-children > a:after {
+  margin-right: -1.25rem;
+}
+#banner nav:hover, #banner nav.expand, #header-menu li:hover > .sub-menu, #header-menu li.expand > .sub-menu {
+  height: auto; // expand
+  overflow: visible; // expand
+}
+
+#header-menu li.menu-item-has-children:not(:hover) > a:after, #header-menu li.menu-item-has-children.collapse > a:after {
+  content: '\25B8'; // onhide, all widths
+}
+#header-menu li:not(:hover) .sub-menu, #header-menu li.collapse .sub-menu {
+  background-color: transparent;
+  border-color: transparent; // onhide, all widths
+}
+
+@include respond-to(min-width, 650px) {
+  #banner .bar {
+    margin-bottom: 8rem;
+  }
+  #mobile-button {
+    display: none;
+  }
+  #header-menu {
+    position: absolute;
+    top: 8rem;
+    text-align: center;
+  }
+  #header-menu > li {
+    display: table-cell;
+    width: 1%;
+    position: relative; // for width on position:absolute children
+    border: solid 1px transparent;
+    &:before {
+      content: ''; // creates invisible aligning element
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    > a {
+      display: inline-block;
+      vertical-align: middle;
     }
   }
-  .sub-menu .sub-menu li {
-    padding-right: 2rem;
-    &:last-child {
-      padding-bottom: 1rem;
+  #header-menu .sub-menu {
+    position: absolute;
+    text-align: left;
+    min-width: 100%;
+    @include menu-box;
+    li.menu-item-has-children a:after {
+      position: absolute;
+      right: 0;
     }
-  }
-  .sub-menu li:hover .sub-menu {
-    background-color: #FAFAFA;
-    border-radius: 3px;
-    border: solid 1px lightgray;
+    .sub-menu {
+      position: absolute;
+      left: 100%;
+      margin-left: 1rem;
+      margin-top: -2rem;
+    }
   }
 }
